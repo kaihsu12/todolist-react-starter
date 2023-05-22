@@ -114,6 +114,11 @@ const TodoPage = () => {
     });
   };
 
+  const handleDeleteTodo = (id) => {
+    //const index = todos.findIndex((t) => t.id === id);
+    setTodos(todos.filter((t) => t.id !== id));
+  };
+
   return (
     <div>
       TodoPage
@@ -129,8 +134,9 @@ const TodoPage = () => {
         onToggleDone={handleToggleDone}
         onChangeMode={handleChangeMode}
         onSave={handleSave}
+        onDelete={handleDeleteTodo}
       />
-      <Footer />
+      <Footer itemNumber={todos.length} />
     </div>
   );
 };
